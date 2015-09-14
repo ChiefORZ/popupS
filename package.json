@@ -1,0 +1,38 @@
+{
+  "name": "popupS",
+  "version": "1.0.0",
+  "description": "Native Javascript Modal/Popup system. With react support!",
+  "main": "dist/popupS.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "modal",
+    "popup",
+    "layer",
+    "dialog",
+    "prompt",
+    "alert",
+    "message",
+    "lightbox",
+    "javascript",
+    "pure javascript",
+    "native javascript",
+    "no jQuery",
+    "js"
+  ],
+  "author": "ChiefORZ",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-version": "*",
+    "gulp": "^3.9.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-strip-debug": "^1.0.2",
+    "gulp-uglify": "^1.4.1",
+    "uglifyify": "^3.0.1"
+  }
+}
