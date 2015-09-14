@@ -26,13 +26,6 @@
   "devDependencies": {
     "grunt": "*",
     "grunt-contrib-watch": "*",
-    "grunt-contrib-uglify": "*",
-    "grunt-version": "*",
-    "gulp": "^3.9.0",
-    "gulp-browserify": "^0.5.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-strip-debug": "^1.0.2",
-    "gulp-uglify": "^1.4.1",
-    "uglifyify": "^3.0.1"
+    "grunt-contrib-uglify": "*"
   }
 }

@@ -29,7 +29,7 @@
 
             for (var key in arguments[i]) {
                 if (arguments[i].hasOwnProperty(key))
-                out[key] = arguments[i][key];
+                    out[key] = arguments[i][key];
             }
         }
 

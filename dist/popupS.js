@@ -95,7 +95,7 @@
 
             for (var key in arguments[i]) {
                 if (arguments[i].hasOwnProperty(key))
-                out[key] = arguments[i][key];
+                    out[key] = arguments[i][key];
             }
         }
 
@@ -353,7 +353,7 @@
                 html: '&times;'
             }
         );
-        console.log('options ' , options);
+        var tempOptions;
 
         var markup = {
             buttons: {
@@ -378,6 +378,8 @@
                 if (typeof opt.mode !== "string") throw new Error("mode must be a string");
                 if (typeof opt.title !== "undefined" && typeof opt.title !== "string") throw new Error("title must be a string");
                 if (typeof opt.placeholder !== "undefined" && typeof opt.placeholder !== "string") throw new Error("placeholder must be a string");
+                // when additional options are defined
+                this._tempOverrideOptions(opt);
                 //initialize if it hasn't already been done
                 this._init();
                 if (opt.force === true){
@@ -385,6 +387,25 @@
                 }
                 queue.push(opt);
                 if (!isOpen) this._create();
+            },
+            /**
+             * Temporarily override the options of the Class
+             * stores the regular options in an variable
+             */
+            _tempOverrideOptions: function(opt) {
+                if(opt.options && !tempOptions) {
+                    tempOptions              = _extend({}, options);
+                    tempOptions.addClassName = _extend({}, options.addClassName);
+                    tempOptions.closeBtn     = _extend({}, options.closeBtn);
+                    tempOptions.flags        = _extend({}, options.flags);
+                    tempOptions.labels       = _extend({}, options.labels);
+                    options                  = _deepExtend(options, opt.options);
+                } else if (opt.options && tempOptions) {
+                    options = _deepExtend(options, opt.options);
+                } else {
+                    options = tempOptions;
+                    tempOptions = undefined;
+                }
             },
             /**
              * Initialization of the main elements
