@@ -25,6 +25,7 @@
   "license": "MIT",
   "devDependencies": {
     "grunt": "*",
+    "grunt-contrib-cssmin": "^0.14.0",
     "grunt-contrib-uglify": "*",
     "grunt-contrib-watch": "*"
   }

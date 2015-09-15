@@ -11,7 +11,7 @@ module.exports = function (grunt){
 
         watch: {
             scripts: {
-                files: 'src/**/*.*',
+                files: ['src/**/*.*', 'css/popupS.css'],
                 tasks: ['default'],
                 options: { interrupt: true }
             }
@@ -24,6 +24,18 @@ module.exports = function (grunt){
             dist: {
                 files: {
                       'dist/<%= pkg.name %>.min.js': ['dist/popupS.js']
+                }
+            }
+        },
+
+        cssmin: {
+            options: {
+                shorthandCompacting: false,
+                roundingPrecision: -1
+            },
+            target: {
+                files: {
+                    'css/popupS.min.css': ['css/popupS.css']
                 }
             }
         }
@@ -58,10 +70,12 @@ module.exports = function (grunt){
         grunt.file.write(config.dst, content);
     });
 
-    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('js', ['export']);
     grunt.registerTask('min', ['uglify']);
-    grunt.registerTask('default', ['js', 'min']);
+    grunt.registerTask('css', ['cssmin']);
+    grunt.registerTask('default', ['js', 'min', 'css']);
 };
