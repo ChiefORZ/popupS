@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>popupS - simply beautiful popups</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- Rainbow -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/dreamweaver.css">
+
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:100,400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/main.css">
+</head>
+<body>
+    <div class="wrapper">
+        <section id="hero" class="hero">
+            <script>
+                document.getElementById('hero').style.height = parseInt(window.innerHeight)+"px";
+            </script>
+            <div class="container text-center">
+                <h1>popupS</h1>
+                <div class="tagline">
+                    A simple way to display beautiful popupS.
+                </div>
+                <div onclick="test(); return false;" class="example" style="margin-top: 50px; display: inline-block; position: relative; text-align: left; white-space: normal; vertical-align: middle; transform: translate3d(0px, 0px, 0px);">
+                    <div class="popupS-layer popupS-open">
+                        <div class="">
+                            <span class="popupS-close">×</span>
+                            <div class="popupS-content">
+                                <img src="http://static.hdw.eweb4.com/media/wallpapers_1920x1080/nature/1/1/himalaya-nature-hd-wallpaper-1920x1080-6944.jpg" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    function test() {
+                        popupS.window({
+                            mode: 'modal',
+                            content: '<img src="http://static.hdw.eweb4.com/media/wallpapers_1920x1080/nature/1/1/himalaya-nature-hd-wallpaper-1920x1080-6944.jpg" />'
+                        });
+                    }
+                </script>
+            </div>
+        </section>
+        <section class="examples odd">
+            <div class="container">
+                <h3 class="text-center">Alert</h3><br/>
+                <div class="dropper-grid">
+                    <div class="dropper-unit-1 dropper-unit-lg-1-2 text-center">
+                        <div onclick="test1();return false;" class="example" style="display: inline-block; position: relative; text-align: left; white-space: normal; vertical-align: middle; transform: translate3d(0px, 0px, 0px);">
+                            <div class="popupS-layer popupS-open">
+                                <div>
+                                    <span class=" popupS-close">×</span>
+                                    <div class=" popupS-content">Hello World!
+                                        <nav class="popupS-buttons dropper-button-holder">
+                                            <button class="popupS-button-ok dropper-button primary button-purple popupS-button">OK</button>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <script>
+                            function test1() {
+                                popupS.window({
+                                    mode: 'alert',
+                                    content: 'Hello World!'
+                                });
+                            }
+                        </script>
+                    </div>
+                    <div class="dropper-unit-1 dropper-unit-lg-1-2 text-center">
+<pre>
+<code data-language="javascript">   popupS.window({
+        mode: 'alert',
+        content: 'Hello World!'
+    });</code>
+</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="examples">
+            <div class="container">
+                <h3 class="text-center">Confirm</h3><br/>
+                <div class="dropper-grid">
+                    <div class="dropper-unit-1 dropper-unit-lg-1-2 text-center">
+                        <div onclick="test2(); return false;" class="example" style="display: inline-block; position: relative; text-align: left; white-space: normal; vertical-align: middle; transform: translate3d(0px, 0px, 0px);">
+                            <div class="popupS-layer popupS-open">
+                                <div>
+                                    <span class="popupS-close">×</span>
+                                    <div class="popupS-content">Continue?
+                                        <nav class="popupS-buttons dropper-button-holder">
+                                            <button class="popupS-button-cancel dropper-button popupS-button">Cancel</button>
+                                            <button class="popupS-button-ok dropper-button primary button-purple popupS-button">OK</button>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <script>
+                            function test2() {
+                                popupS.window({
+                                    mode: 'confirm',
+                                    content: 'Continue?',
+                                    onSubmit: function() {
+                                        popupS.window({
+                                            mode: 'alert',
+                                            content: 'Great!'
+                                        });
+                                    }
+                                });
+                            }
+                        </script>
+                    </div>
+                    <div class="dropper-unit-1 dropper-unit-lg-1-2 text-center">
+<pre>
+<code data-language="javascript">   popupS.window({
+        mode: 'confirm',
+        content: 'Continue?',
+        onSubmit: function() {
+                popupS.window({
+                        mode: 'alert',
+                        content: 'Great!'
+                });
+        }
+    });</code>
+</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="examples odd">
+            <div class="container">
+                <h3 class="text-center">Prompt</h3><br/>
+                <div class="dropper-grid">
+                    <div class="dropper-unit-1 dropper-unit-lg-1-2 text-center">
+                        <div onclick="test3(); return false;" class="example" style="display: inline-block; position: relative; text-align: left; white-space: normal; vertical-align: middle; transform: translate3d(0px, 0px, 0px);">
+                            <div class="popupS-layer popupS-open">
+                                <div>
+                                    <div class="popupS-close">×</div>
+                                    <div class="popupS-content">What is your name?
+                                        <div class="popupS-form ">
+                                            <input type="text" id="popupS-input">
+                                        </div>
+                                        <nav class="popupS-buttons dropper-button-holder">
+                                            <button class="popupS-button-cancel dropper-button popupS-button">Cancel</button>
+                                            <button class="popupS-button-ok dropper-button primary button-purple popupS-button">OK</button>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <script>
+                            function test3() {
+                                popupS.window({
+                                    mode: 'prompt',
+                                    content: 'What is your name?',
+                                    onSubmit: function(val) {
+                                        popupS.window({
+                                            mode: 'alert',
+                                            content: 'Hi, ' + val + '!'
+                                        });
+                                    }
+                                });
+                            }
+                        </script>
+                    </div>
+                    <div class="dropper-unit-1 dropper-unit-lg-1-2 text-center">
+<pre><code data-language="javascript">   popupS.window({
+        mode: 'prompt',
+        content: 'What is your name?',
+        onSubmit: function(val) {
+                popupS.window({
+                        mode: 'alert',
+                        content: 'Hi, ' + val + '!'
+                });
+        }
+    });</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="examples">
+            <div class="container">
+                <h3 class="text-center">Modal</h3><br/>
+                <div class="dropper-grid">
+                    <div class="dropper-unit-1 dropper-unit-lg-1-2 text-center">
+                        <div onclick="test4();return false;" class="example" style="display: inline-block; position: relative; text-align: left; white-space: normal; vertical-align: middle; transform: translate3d(0px, 0px, 0px);">
+                            <div class="popupS-layer popupS-open">
+                                <div>
+                                    <span class="popupS-close">×</span>
+                                    <div class="popupS-content">
+                                        <div class="dropper-form aligned">
+                                            <div class="dropper-form-group">
+                                                <label for="f1-email">Email</label>
+                                                <input type="email" name="" id="f1-email">
+                                            </div>
+                                            <div class="dropper-form-group">
+                                                <label for="f1-password">Password</label>
+                                                <input type="password" name="" id="f1-password">
+                                            </div>
+                                            <div class="dropper-form-controls">
+                                                <label>
+                                                    <input type="checkbox" name=""><span class="dropper-checkbox checkbox-sub-blue"></span>Remember Me</label>
+                                                <button type="submit" class="dropper-button primary button-purple">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <script>
+                            function test4() {
+                                popupS.window({
+                                    mode: 'modal',
+                                    content: '<div class="dropper-form aligned"><div class="dropper-form-group"><label for="f4-email">Email</label><input type="email" name="" id="f4-email"></div><div class="dropper-form-group"><label for="f4-password">Password</label><input type="password" name="" id="f4-password"></div><div class="dropper-form-controls"><label><input type="checkbox" name=""><span class="dropper-checkbox checkbox-sub-blue"></span>Remember Me</label><button type="submit" class="dropper-button primary button-purple">Submit</button></div></div>'
+                                });
+                            }
+                        </script>
+                    </div>
+                    <div class="dropper-unit-1 dropper-unit-lg-1-2 text-center">
+<pre>
+<code data-language="javascript">   popupS.window({
+            mode: 'modal',
+            content: '<div class="dropper-form aligned">
+                    <div class="dropper-form-group">
+                            <label for="f2-email">Email</label>
+                            <input type="email" name="" id="f2-email">
+                    </div>
+                    <div class="dropper-form-group">
+                            <label for="f2-password">Password</label>
+                            <input type="password" name="" id="f2-password">
+                    </div>
+                    <div class="dropper-form-controls">
+                            <label>
+                                    <input type="checkbox" name="">
+                                            <span class="dropper-checkbox checkbox-sub-blue"></span>
+                                            Remember Me
+                                    </label>
+                            <button type="submit" class="dropper-button primary button-purple">Submit</button>
+                    </div>
+            </div>'
+    });</code>
+</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!--  popupS  -->
+    <link rel="stylesheet" href="css/popupS.css">
+    <script src="dist/popupS.js"></script>
+    <script>
+        var popupS = new PopupS({
+            addClassName : {
+                buttonHolder: 'dropper-button-holder',
+                buttonOk: 'dropper-button primary button-purple popupS-button',
+                buttonCancel: 'dropper-button popupS-button'
+            }
+        });
+    </script>
+    <!-- Rainbow -->
+    <!-- <srcipt src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/rainbow.min.js"></srcipt> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/rainbow.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/language/generic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/language/javascript.js"></script>
+
+</body>
+</html>
