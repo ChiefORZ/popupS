@@ -353,7 +353,11 @@
                 html: '&times;'
             }
         );
-        var tempOptions;
+        var tempOptions              = _extend({}, options);
+            tempOptions.addClassName = _extend({}, options.addClassName);
+            tempOptions.closeBtn     = _extend({}, options.closeBtn);
+            tempOptions.flags        = _extend({}, options.flags);
+            tempOptions.labels       = _extend({}, options.labels);
 
         var markup = {
             buttons: {
@@ -393,14 +397,12 @@
              * stores the regular options in an variable
              */
             _tempOverrideOptions: function(opt) {
+                tempOptions              = _extend({}, options);
+                tempOptions.addClassName = _extend({}, options.addClassName);
+                tempOptions.closeBtn     = _extend({}, options.closeBtn);
+                tempOptions.flags        = _extend({}, options.flags);
+                tempOptions.labels       = _extend({}, options.labels);
                 if(opt.options && !tempOptions) {
-                    tempOptions              = _extend({}, options);
-                    tempOptions.addClassName = _extend({}, options.addClassName);
-                    tempOptions.closeBtn     = _extend({}, options.closeBtn);
-                    tempOptions.flags        = _extend({}, options.flags);
-                    tempOptions.labels       = _extend({}, options.labels);
-                    options                  = _deepExtend(options, opt.options);
-                } else if (opt.options && tempOptions) {
                     options = _deepExtend(options, opt.options);
                 } else {
                     options = tempOptions;
