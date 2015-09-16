@@ -4,6 +4,8 @@ module.exports = function (grunt){
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
+        banner: '/*! <%= pkg.name %> <%= pkg.version %> - <%= pkg.license %> | <%= pkg.repository.url %> */\n',
+
         export: {
             src: "src/main.js",
             dst: "dist/popupS.js"
@@ -19,7 +21,7 @@ module.exports = function (grunt){
 
         uglify: {
             options: {
-                banner: '/*! <%= pkg.name %> <%= pkg.version %> - <%= pkg.license %>*/\n'
+                banner: '<%= banner %>'
             },
             dist: {
                 files: {
@@ -35,10 +37,30 @@ module.exports = function (grunt){
             },
             target: {
                 files: {
-                    'css/popupS.min.css': ['css/popupS.css']
+                    'css/<%= pkg.name %>.min.css': ['css/popupS.css']
                 }
             }
-        }
+        },
+
+        usebanner: {
+            taskName: {
+                options: {
+                    position: 'top',
+                    banner: '<%= banner %>',
+                    linebreak: false
+                },
+                files: {
+                    src: [
+                        'css/popupS.min.css'
+                    ]
+                }
+            }
+        },
+
+        clean: [
+            'css/popupS.min.css'
+        ]
+
     });
 
     grunt.registerTask('export', 'Export js', function () {
@@ -73,9 +95,11 @@ module.exports = function (grunt){
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-usebanner');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
     grunt.registerTask('js', ['export']);
-    grunt.registerTask('min', ['uglify']);
-    grunt.registerTask('css', ['cssmin']);
+    grunt.registerTask('min', ['uglify', 'usebanner']);
+    grunt.registerTask('css', ['clean', 'cssmin', 'usebanner']);
     grunt.registerTask('default', ['js', 'min', 'css']);
 };
