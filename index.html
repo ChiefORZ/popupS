@@ -255,6 +255,61 @@
                 </div>
             </div>
         </section>
+                <section class="examples">
+                    <div class="container">
+                        <h3 class="text-center">React implementation</h3><br/>
+                        <div class="dropper-grid">
+                            <div class="dropper-unit-1 dropper-unit-lg-1-2 text-center">
+
+                                <div onclick="test5();return false;" class="example" style="display: inline-block; position: relative; text-align: left; white-space: normal; vertical-align: middle; transform: translate3d(0px, 0px, 0px);">
+                                    <div class="popupS-layer popupS-open">
+                                        <div>
+                                            <span class="popupS-close">×</span>
+                                            <div class="popupS-content" id="react-example">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <script>
+                                    function test5() {
+                                        popupS.window({
+                                            mode: 'modal',
+                                            onOpen: function() {
+                                                React.render(
+                                                  searchExample,
+                                                  this.$contentEl
+                                                );
+                                            },
+                                            onClose: function() {
+                                                this.$layerEl.style.opacity = "0";
+                                                React.unmountComponentAtNode(this.$contentEl);
+                                            }
+                                        });
+                                    }
+                                </script>
+                            </div>
+                            <div class="dropper-unit-1 dropper-unit-lg-1-2 text-center">
+<pre>
+<code data-language="javascript">   popupS.window({
+        mode: 'modal',
+        onOpen: function() {
+                React.render(
+                        searchExample,
+                        this.$contentEl
+                );
+        },
+        onClose: function() {
+                this.$layerEl.style.opacity = "0";
+                React.unmountComponentAtNode(this.$contentEl);
+        }
+    });</code>
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
     </div>
 
     <!--  popupS  -->
@@ -269,11 +324,24 @@
             }
         });
     </script>
+
     <!-- Rainbow -->
-    <!-- <srcipt src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/rainbow.min.js"></srcipt> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/rainbow.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/language/generic.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/language/javascript.js"></script>
 
+    <!-- React -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.min.js"></script>
+    <script src="assets/SearchExample.js"></script>
+    <script>
+        var searchExample = new SearchExample({
+            items: libraries
+        });
+        React.render(
+            searchExample,
+            document.getElementById('react-example')
+        );
+
+    </script>
 </body>
 </html>
