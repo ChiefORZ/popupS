@@ -71,16 +71,29 @@ module.exports = function (grunt){
         function parse(src, pad) {
             grunt.log.writeln((pad || '') + 'Parse file:', src);
 
-            return grunt.file.read(src)
-                .replace(/module\.exports\s*=\s*([\s\S]+);/, '$1')
-                .replace(/require\('(.*?)'\);?/g, function (_, name) {
-                    return parse(file(src, name), '  ');
-                })
-                .replace(/\/+\s+&import\s+"(.*?)".*?\n/g, function (_, name) {
-                    return parse(file(src, name), '  ');
-                })
-                .trim()
-            ;
+
+            if(src == 'src/main.js'){
+                return grunt.file.read(src)
+                    .replace(/require\('(.*?)'\);?/g, function (_, name) {
+                        return parse(file(src, name), '  ');
+                    })
+                    .replace(/\/+\s+&import\s+"(.*?)".*?\n/g, function (_, name) {
+                        return parse(file(src, name), '  ');
+                    })
+                    .trim()
+                ;
+            } else {
+               return grunt.file.read(src)
+                   .replace(/module\.exports\s*=\s*([\s\S]+);/, '$1')
+                   .replace(/require\('(.*?)'\);?/g, function (_, name) {
+                       return parse(file(src, name), '  ');
+                   })
+                   .replace(/\/+\s+&import\s+"(.*?)".*?\n/g, function (_, name) {
+                       return parse(file(src, name), '  ');
+                   })
+                   .trim()
+               ;
+            }
         }
 
         var config = grunt.config(this.name);
@@ -99,7 +112,7 @@ module.exports = function (grunt){
     grunt.loadNpmTasks('grunt-contrib-clean');
 
     grunt.registerTask('js', ['export']);
-    grunt.registerTask('min', ['uglify', 'usebanner']);
+    grunt.registerTask('min', ['uglify']);
     grunt.registerTask('css', ['clean', 'cssmin', 'usebanner']);
     grunt.registerTask('default', ['js', 'min', 'css']);
 };
