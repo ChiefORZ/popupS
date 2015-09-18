@@ -6,7 +6,7 @@
             if(this.$layerEl && this.$layerEl.style.opacity) this.$layerEl.style.opacity = "";
             if(!this.$wrapEl){
                 this.$wrapEl = _buildDOM({
-                    tag: 'div.' + this.options.baseClassName + '-base' + (this.options.additionalBaseClass ? '.' + this.options.additionalBaseClass : ''),
+                    tag: 'div.' + this.options.baseClassName + '-base' + (this.options.additionalBaseClass ? this.options.additionalBaseClass : ''),
                     css: {
                         top: 0,
                         left: 0,
@@ -35,7 +35,7 @@
         _getOverlay: function () {
             if (!this.$overlayEl) {
                 this.$overlayEl = _buildDOM({
-                    tag: '#popupS-overlay.' + this.options.baseClassName + '-overlay' + (this.options.additionalOverlayClass ? '.' + this.options.additionalOverlayClass : ''),
+                    tag: '#popupS-overlay.' + this.options.baseClassName + '-overlay' + (this.options.additionalOverlayClass ? this.options.additionalOverlayClass : ''),
                     css: {
                         top: 0,
                         right: 0,
@@ -64,7 +64,7 @@
                         transform: 'translate3d(0,0,0)'
                     },
                     children: {
-                        tag: '.' + this.options.baseClassName + '-layer' + (this.options.additionalPopupClass ? '.' + this.options.additionalPopupClass : '')
+                        tag: '.' + this.options.baseClassName + '-layer' + (this.options.additionalPopupClass ? this.options.additionalPopupClass : '')
                     }
                 });
             }
@@ -113,25 +113,25 @@
             };
 
             btnOk = {
-                tag:  'button#popupS-button-ok.' + this.options.baseClassName + '-button-ok' + (this.options.additionalButtonOkClass ? '.' + this.options.additionalButtonOkClass : ''),
+                tag:  'button#popupS-button-ok.' + this.options.baseClassName + '-button-ok' + (this.options.additionalButtonOkClass ? this.options.additionalButtonOkClass : ''),
                 text: this.options.labelOk };
             btnCancel = {
-                tag:  'button#popupS-button-cancel.' + this.options.baseClassName + '-button-ok' + (this.options.additionalButtonCancelClass ? '.' + this.options.additionalButtonCancelClass : ''),
+                tag:  'button#popupS-button-cancel.' + this.options.baseClassName + '-button-ok' + (this.options.additionalButtonCancelClass ? this.options.additionalButtonCancelClass : ''),
                 text: this.options.labelCancel };
 
             htmlObj = [
                 { html: content },
                 mode != 'modal' && mode != 'modal-ajax' && mode == 'prompt' && {
-                    tag: 'form.' + this.options.baseClassName + '-form' + (this.options.additionalFormClass ? '.' + this.options.additionalFormClass : ''),
+                    tag: 'form.' + this.options.baseClassName + '-form' + (this.options.additionalFormClass ? this.options.additionalFormClass : ''),
                     children: [
-                        { tag:     'label',
+                        item.placeholder && { tag:     'label',
                           htmlFor: 'popupS-input',
                           text:    item.placeholder },
                         { tag:  'input#popupS-input',
                           type: 'text' }
                     ]
                 },
-                { tag: 'nav.' + this.options.baseClassName + '-buttons' + (this.options.additionalButtonHolderClass ? '.' + this.options.additionalButtonHolderClass : ''),
+                mode != 'modal' && mode != 'modal-ajax' && { tag: 'nav.' + this.options.baseClassName + '-buttons' + (this.options.additionalButtonHolderClass ? this.options.additionalButtonHolderClass : ''),
                   children:
                     (
                         (mode == 'prompt' || mode == 'confirm')
@@ -147,7 +147,7 @@
                       href:'#',
                       text:'Reset Focus' },
                     (this.options.flagShowCloseBtn && {
-                        tag: 'span#popupS-close.' + this.options.baseClassName + '-close' + (this.options.additionalCloseBtnClass ? '.' + this.options.additionalCloseBtnClass : ''),
+                        tag: 'span#popupS-close.' + this.options.baseClassName + '-close' + (this.options.additionalCloseBtnClass ? this.options.additionalCloseBtnClass : ''),
                         html: this.options.closeBtn
                     }),
                     (title && {

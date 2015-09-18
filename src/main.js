@@ -5,7 +5,7 @@
     } else if (typeof exports === 'object') {
         module.exports = factory();
     } else {
-        root.PopupS = factory();
+        root.popupS = factory();
     }
 
 }(this, function () {
@@ -38,6 +38,12 @@
             !(name in options) && (options[name] = _defaults[name]);
         }
 
+        // trail all classes divided by periods
+        _each(['additionalBaseClass', 'additionalButtonHolderClass', 'additionalButtonOkClass', 'additionalButtonCancelClass', 'additionalCloseBtnClass', 'additionalFormClass', 'additionalOverlayClass', 'additionalPopupClass'], function(option) {
+            var string = options[option].split(' ').join('.');
+            options[option] = '.' + string;
+        });
+
         // Bind all private methods
         for (var fn in this) {
             if (fn.charAt(0) === '_') {
@@ -67,32 +73,26 @@
      * @param   {Object}    params
      */
     PopupS.window = function(params) {
-        console.log('params ' , params);
         return new PopupS(params);
     };
     PopupS.alert = function(params) {
         params = _extend(params, {mode: 'alert'});
-        console.log('params ' , params);
         return new PopupS(params);
     };
     PopupS.confirm = function(params) {
         params = _extend(params, {mode: 'confirm'});
-        console.log('params ' , params);
         return new PopupS(params);
     };
     PopupS.prompt = function(params) {
         params = _extend(params, {mode: 'prompt'});
-        console.log('params ' , params);
         return new PopupS(params);
     };
     PopupS.modal = function(params) {
         params = _extend(params, {mode: 'modal'});
-        console.log('params ' , params);
         return new PopupS(params);
     };
     PopupS.ajax = function(params) {
         params = _extend(params, {mode: 'modal-ajax'});
-        console.log('params ' , params);
         return new PopupS(params);
     };
 
