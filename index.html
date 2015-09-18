@@ -41,9 +41,11 @@
                 </div>
                 <script>
                     function test() {
-                        popupS.window({
-                            mode: 'modal',
-                            content: '<img src="http://static.hdw.eweb4.com/media/wallpapers_1920x1080/nature/1/1/himalaya-nature-hd-wallpaper-1920x1080-6944.jpg" />'
+                        popupS.modal({
+                            content: '<img src="http://static.hdw.eweb4.com/media/wallpapers_1920x1080/nature/1/1/himalaya-nature-hd-wallpaper-1920x1080-6944.jpg" />',
+                            additionalButtonHolderClass: 'dropper-button-holder',
+                            additionalButtonOkClass: 'dropper-button primary button-purple popupS-button',
+                            additionalButtonCancelClass: 'dropper-button popupS-button'
                         });
                     }
                 </script>
@@ -69,17 +71,18 @@
 
                         <script>
                             function test1() {
-                                popupS.window({
-                                    mode: 'alert',
-                                    content: 'Hello World!'
+                                popupS.alert({
+                                    content: 'Hello World!',
+                                    additionalButtonHolderClass: 'dropper-button-holder',
+                                    additionalButtonOkClass: 'dropper-button primary button-purple popupS-button',
+                                    additionalButtonCancelClass: 'dropper-button popupS-button'
                                 });
                             }
                         </script>
                     </div>
                     <div class="dropper-unit-1 dropper-unit-lg-1-2 text-center">
 <pre>
-<code data-language="javascript">   popupS.window({
-        mode: 'alert',
+<code data-language="javascript">   popupS.alert({
         content: 'Hello World!'
     });</code>
 </pre>
@@ -108,13 +111,17 @@
 
                         <script>
                             function test2() {
-                                popupS.window({
-                                    mode: 'confirm',
+                                popupS.confirm({
                                     content: 'Continue?',
+                                    additionalButtonHolderClass: 'dropper-button-holder',
+                                    additionalButtonOkClass: 'dropper-button primary button-purple popupS-button',
+                                    additionalButtonCancelClass: 'dropper-button popupS-button',
                                     onSubmit: function() {
-                                        popupS.window({
-                                            mode: 'alert',
-                                            content: 'Great!'
+                                        popupS.alert({
+                                            content: 'Great!',
+                                            additionalButtonHolderClass: 'dropper-button-holder',
+                                            additionalButtonOkClass: 'dropper-button primary button-purple popupS-button',
+                                            additionalButtonCancelClass: 'dropper-button popupS-button'
                                         });
                                     }
                                 });
@@ -123,12 +130,10 @@
                     </div>
                     <div class="dropper-unit-1 dropper-unit-lg-1-2 text-center">
 <pre>
-<code data-language="javascript">   popupS.window({
-        mode: 'confirm',
+<code data-language="javascript">   popupS.confirm({
         content: 'Continue?',
         onSubmit: function() {
-                popupS.window({
-                        mode: 'alert',
+                popupS.alert({
                         content: 'Great!'
                 });
         }
@@ -162,13 +167,17 @@
 
                         <script>
                             function test3() {
-                                popupS.window({
-                                    mode: 'prompt',
+                                popupS.prompt({
                                     content: 'What is your name?',
+                                    additionalButtonHolderClass: 'dropper-button-holder',
+                                    additionalButtonOkClass: 'dropper-button primary button-purple popupS-button',
+                                    additionalButtonCancelClass: 'dropper-button popupS-button',
                                     onSubmit: function(val) {
-                                        popupS.window({
-                                            mode: 'alert',
-                                            content: 'Hi, ' + val + '!'
+                                        popupS.alert({
+                                            content: 'Hi, ' + val + '!',
+                                            additionalButtonHolderClass: 'dropper-button-holder',
+                                            additionalButtonOkClass: 'dropper-button primary button-purple popupS-button',
+                                            additionalButtonCancelClass: 'dropper-button popupS-button'
                                         });
                                     }
                                 });
@@ -176,12 +185,10 @@
                         </script>
                     </div>
                     <div class="dropper-unit-1 dropper-unit-lg-1-2 text-center">
-<pre><code data-language="javascript">   popupS.window({
-        mode: 'prompt',
+<pre><code data-language="javascript">   popupS.prompt({
         content: 'What is your name?',
         onSubmit: function(val) {
-                popupS.window({
-                        mode: 'alert',
+                popupS.alert({
                         content: 'Hi, ' + val + '!'
                 });
         }
@@ -222,8 +229,7 @@
 
                         <script>
                             function test4() {
-                                popupS.window({
-                                    mode: 'modal',
+                                popupS.modal({
                                     content: '<div class="dropper-form aligned"><div class="dropper-form-group"><label for="f4-email">Email</label><input type="email" name="" id="f4-email"></div><div class="dropper-form-group"><label for="f4-password">Password</label><input type="password" name="" id="f4-password"></div><div class="dropper-form-controls"><label><input type="checkbox" name=""><span class="dropper-checkbox checkbox-sub-blue"></span>Remember Me</label><button type="submit" class="dropper-button primary button-purple">Submit</button></div></div>'
                                 });
                             }
@@ -231,8 +237,7 @@
                     </div>
                     <div class="dropper-unit-1 dropper-unit-lg-1-2 text-center">
 <pre>
-<code data-language="javascript">   popupS.window({
-            mode: 'modal',
+<code data-language="javascript">   popupS.modal({
             content: '<div class="dropper-form aligned">
                     <div class="dropper-form-group">
                             <label for="f2-email">Email</label>
@@ -276,8 +281,7 @@
 
                                 <script>
                                     function test5() {
-                                        popupS.window({
-                                            mode: 'modal',
+                                        popupS.modal({
                                             onOpen: function() {
                                                 React.render(
                                                   searchExample,
@@ -294,8 +298,7 @@
                             </div>
                             <div class="dropper-unit-1 dropper-unit-lg-1-2 text-center">
 <pre>
-<code data-language="javascript">   popupS.window({
-        mode: 'modal',
+<code data-language="javascript">   popupS.modal({
         onOpen: function() {
                 React.render(
                         searchExample,
@@ -318,15 +321,6 @@
     <!--  popupS  -->
     <link rel="stylesheet" href="css/popupS.css">
     <script src="dist/popupS.js"></script>
-    <script>
-        var popupS = new PopupS({
-            addClassName : {
-                buttonHolder: 'dropper-button-holder',
-                buttonOk: 'dropper-button primary button-purple popupS-button',
-                buttonCancel: 'dropper-button popupS-button'
-            }
-        });
-    </script>
 
     <!-- Rainbow -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/rainbow.js"></script>
