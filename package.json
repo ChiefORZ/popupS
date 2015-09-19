@@ -1,6 +1,6 @@
 {
-  "name": "popupS",
-  "version": "1.1.0",
+  "name": "popups",
+  "version": "1.1.1",
   "description": "Native Javascript Modal/Popup system. With react support!",
   "main": "dist/popupS.js",
   "scripts": {

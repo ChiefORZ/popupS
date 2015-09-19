@@ -21,13 +21,13 @@ The plugin can be used as a Common JS module, an AMD module, or a global.
 Install with npm, use with [Browserify](http://browserify.org/)
 
 ```
-> npm install popupS
+> npm install popups
 ```
 
 and in your code
 
 ```javascript
-var popupS = require('popupS');
+var popupS = require('popups');
 
 popupS.alert({
     content: 'Hello World!'
