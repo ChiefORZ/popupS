@@ -353,7 +353,7 @@
                 this.$layerEl.childNodes[0].className = this.$layerEl.childNodes[0].className.replace(' ' + this.options.baseClassName + '-open', '');
                 if (transition.supported) _on(self.$layerEl, transition.type, transitionDoneLayer);
 
-                function removeWrap() {
+                var removeWrap = function() {
                     // remove the wrap element from the DOM
                     _removeElement(self.$wrapEl);
                     // remove the element level style for overflow if the option was set.
@@ -364,21 +364,21 @@
                             self.$targetEl.style.removeAttribute('overflow');
                         }
                     }
-                }
+                };
 
-                function transitionDone(event) {
+                var transitionDone = function(event) {
                     event.stopPropagation();
                     // unbind event so function only gets called once
                     _off(self.$wrapEl, transition.type, transitionDone);
                     // remove the Element from the DOM after Transition is Done
                     removeWrap();
-                }
+                };
 
-                function transitionDoneLayer(event) {
+                transitionDoneLayer = function(event) {
                     event.stopPropagation();
                     // unbind event so function only gets called once
                     _off(self.$layerEl, transition.type, transitionDone);
-                }
+                };
 
             }
         },
@@ -483,7 +483,7 @@
             //in case the're already cached by the browser
             !queue && complete();
 
-            function complete(){
+            var complete = function(){
                 if(--queue <= 0){
                     i = items.length;
                     while(i--){
@@ -493,7 +493,7 @@
                     }
                     callback();
                 }
-            }
+            };
         },
         /**
          * ajax request
