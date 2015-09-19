@@ -232,19 +232,6 @@
             else{
                 isOpen = false;
 
-                // removes the open class from the wrap & layer Element
-                // and adds an EventListener to this Element
-                // which removes it from the DOM after the Transition is done.
-
-                this.$wrapEl.className = this.$wrapEl.className.replace(' ' + this.options.baseClassName + '-open', '');
-                if (transition.supported){
-                    _on(self.$wrapEl, transition.type, transitionDone);
-                } else {
-                    removeWrap();
-                }
-                this.$layerEl.childNodes[0].className = this.$layerEl.childNodes[0].className.replace(' ' + this.options.baseClassName + '-open', '');
-                if (transition.supported) _on(self.$layerEl, transition.type, transitionDoneLayer);
-
                 var removeWrap = function() {
                     // remove the wrap element from the DOM
                     _removeElement(self.$wrapEl);
@@ -266,11 +253,24 @@
                     removeWrap();
                 };
 
-                transitionDoneLayer = function(event) {
+                var transitionDoneLayer = function(event) {
                     event.stopPropagation();
                     // unbind event so function only gets called once
                     _off(self.$layerEl, transition.type, transitionDone);
                 };
+
+                // removes the open class from the wrap & layer Element
+                // and adds an EventListener to this Element
+                // which removes it from the DOM after the Transition is done.
+
+                this.$wrapEl.className = this.$wrapEl.className.replace(' ' + this.options.baseClassName + '-open', '');
+                if (transition.supported){
+                    _on(self.$wrapEl, transition.type, transitionDone);
+                } else {
+                    removeWrap();
+                }
+                this.$layerEl.childNodes[0].className = this.$layerEl.childNodes[0].className.replace(' ' + this.options.baseClassName + '-open', '');
+                if (transition.supported) _on(self.$layerEl, transition.type, transitionDoneLayer);
 
             }
         },
