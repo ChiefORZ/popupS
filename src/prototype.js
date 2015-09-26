@@ -1,6 +1,43 @@
     module.exports = {
         constructor: PopupS,
 
+        _open: function(options) {
+            //error catching
+            if (typeof options.mode !== "string") throw new Error("mode must be a string");
+            if (typeof options.title !== "undefined" && typeof options.title !== "string") throw new Error("title must be a string");
+            if (typeof options.placeholder !== "undefined" && typeof options.placeholder !== "string") throw new Error("placeholder must be a string");
+
+            this.options = options = _extend({}, options);
+
+            // Set default options
+            for (var name in _defaults) {
+                !(name in options) && (options[name] = _defaults[name]);
+            }
+
+            // trail all classes divided by periods
+            _each(['additionalBaseClass', 'additionalButtonHolderClass', 'additionalButtonOkClass', 'additionalButtonCancelClass', 'additionalCloseBtnClass', 'additionalFormClass', 'additionalOverlayClass', 'additionalPopupClass'], function(option) {
+                var string = options[option].split(' ').join('.');
+                options[option] = '.' + string;
+            });
+
+            // Bind all private methods
+            for (var fn in this) {
+                if (fn.charAt(0) === '_') {
+                    this[fn] = _bind(this, this[fn]);
+                }
+            }
+
+            //initialize if it hasn't already been done
+            this._init();
+
+            // if it is forced, close all others
+            if(options.force === true) {
+                while (queue.length > 0) queue.pop();
+            }
+            queue.push(options);
+
+            if(!isOpen || options.force === true) this._create();
+        },
         _init: function() {
             // if i passed a opacity attribute to the layer onClose, remove it on initialization
             if(this.$layerEl && this.$layerEl.style.opacity) this.$layerEl.style.opacity = "";

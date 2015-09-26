@@ -65,13 +65,6 @@ For the basic styling and fade in and out to be working, you have to include the
 Create a popup window:
 
 ```javascript
-var popup = new popupS({
-    mode: 'alert',
-    content: 'Hi'
-});
-
-// or
-
 popupS.window({
     mode: 'alert',
     content: 'Hey'
