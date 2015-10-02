@@ -37,7 +37,8 @@ module.exports = function (grunt){
             },
             target: {
                 files: {
-                    'css/<%= pkg.name %>.min.css': ['css/popupS.css']
+                    'css/<%= pkg.name %>.min.css': ['css/popupS.css'],
+                    'assets/main.css': ['assets/src/index.css']
                 }
             }
         },
@@ -58,7 +59,8 @@ module.exports = function (grunt){
         },
 
         clean: [
-            'css/popupS.min.css'
+            'css/popupS.min.css',
+            'assets/main.css'
         ]
 
     });

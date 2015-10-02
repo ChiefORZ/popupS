@@ -33,8 +33,9 @@ section.hero h1 {
     text-shadow: 0 -1px 3px rgba(0,0,0,.2),0 -1px 0 rgba(0,0,0,.3),0 1px 0 rgba(152,184,42,.15),0 1px 4px rgba(152,184,42,.2);
 }
 section.hero h1 a {
-    color: #FFF;
     text-decoration: none;
+
+    color: #FFF;
 }
 
 section.hero .tagline {
@@ -71,15 +72,27 @@ section.hero .tagline {
     margin: -5px 0 0 -50px;
 
     content: "►";
-    -webkit-transition: opacity .2s;
-         -o-transition: opacity .2s;
-            transition: opacity .2s;
+    -webkit-transition: all .2s;
+         -o-transition: all .2s;
+            transition: all .2s;
 
     opacity: 0;
     color: rgb(51, 51, 51);
 }
 .example:hover:after {
     opacity: .7;
+}
+.example .popupS-layer {
+    border: 2px solid #AAA;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+.example:hover .popupS-layer {
+    -webkit-box-shadow: -1px 3px 8px 1px rgba(0,0,0,.2);
+            box-shadow: -1px 3px 8px 1px rgba(0,0,0,.2);
+}
+.hero .example .popupS-layer {
+    border: none;
 }
 .popupS-button {
     border-radius: 8px;
