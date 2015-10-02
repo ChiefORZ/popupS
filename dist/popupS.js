@@ -170,6 +170,8 @@
                         textAlign: 'left',
                         whiteSpace: 'normal',
                         verticalAlign: 'middle',
+                        maxWidth: '100%',
+                        overflowX: 'hidden',
                         transform: 'translate3d(0,0,0)'
                     },
                     children: {
