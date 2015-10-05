@@ -2,9 +2,10 @@
 
 Native Javascript Module to display beautiful popups. With react support!
 
+Demo: http://chieforz.github.io/popupS
+
 ## Features
 
-* Demo: http://chieforz.github.io/popupS
 * Native Javascript / No jQuery dependency
 * Built in CSS spinner for asynchronous dialogs
 * Smart focus on form elements
@@ -34,7 +35,7 @@ popupS.alert({
 });
 ```
 
-For the basic styling and fade in and out to be working, you have to include the [popupS.css](css/popupS.css) in yout header.
+For the basic styling and fade in and out to be working, you have to include the [popupS.css](css/popupS.css) in your header.
 
 ```html
 <link rel="stylesheet" href="popupS.css">
