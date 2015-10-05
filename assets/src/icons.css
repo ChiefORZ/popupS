@@ -1,0 +1,116 @@
+@font-face {
+    font-family: 'dropper-social';
+    src:url('./fonts/dropper-social/dropper-social.eot?-dxhukl');
+    src:url('./fonts/dropper-social/dropper-social.eot?#iefix-dxhukl') format('embedded-opentype'),
+        url('./fonts/dropper-social/dropper-social.woff?-dxhukl') format('woff'),
+        url('./fonts/dropper-social/dropper-social.ttf?-dxhukl') format('truetype'),
+        url('./fonts/dropper-social/dropper-social.svg?-dxhukl#dropper-social') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon-social {
+    font-family: 'dropper-social';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-social-facebook-square:before {
+    content: "\f082";
+}
+
+.icon-social-twitter-square:before {
+    content: "\f081";
+}
+
+.icon-social-google-plus-square:before {
+    content: "\f0d4";
+}
+
+.icon-social-camera-retro:before {
+    content: "\f083";
+}
+
+.icon-social-linkedin-square:before {
+    content: "\f08c";
+}
+
+.icon-social-github-square:before {
+    content: "\f092";
+}
+
+.icon-social-pinterest-square:before {
+    content: "\f0d3";
+}
+
+.icon-social-youtube-play:before {
+    content: "\f16a";
+}
+
+.icon-social-youtube-square:before {
+    content: "\f166";
+}
+
+.icon-social-youtube:before {
+    content: "\f167";
+}
+
+.icon-social-spotify:before {
+    content: "\f1bc";
+}
+
+.icon-social-vimeo-square:before {
+    content: "\f194";
+}
+
+.icon-social-soundcloud:before {
+    content: "\f1be";
+}
+
+.icon-social-dropbox:before {
+    content: "\f16b";
+}
+
+.icon-social-apple:before {
+    content: "\f179";
+}
+
+.icon-social-windows:before {
+    content: "\f17a";
+}
+
+.icon-social-android:before {
+    content: "\f17b";
+}
+
+.icon-social-facebook:before {
+    content: "\e60e";
+}
+
+.icon-social-twitter:before {
+    content: "\e60f";
+}
+
+.icon-social-googleplus:before {
+    content: "\e610";
+}
+
+.icon-social-youtube2:before {
+    content: "\eef4";
+}
+
+.icon-social-vimeo:before {
+    content: "\e4a5";
+}
+
+.icon-social-paypal:before {
+    content: "\e4dd";
+}

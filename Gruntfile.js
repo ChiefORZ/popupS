@@ -13,7 +13,7 @@ module.exports = function (grunt){
 
         watch: {
             scripts: {
-                files: ['src/**/*.*', 'css/popupS.css'],
+                files: ['src/**/*.*', 'css/popupS.css', 'assets/src/**.**'],
                 tasks: ['default'],
                 options: { interrupt: true }
             }

@@ -1,16 +1,18 @@
-section.hero {
-    position: relative;
-
-    overflow: hidden;
-
-    min-height: 730px;
-
+.hero {
     background: #5F357D;
     background: -webkit-radial-gradient(circle farthest-corner at right bottom, #FFD08A 0%, #FFA376 28%, #D26578 52%, #682A84 79%, #241668 100%);
     background:    -moz-radial-gradient(circle farthest-corner at right bottom, #FFD08A 0%, #FFA376 28%, #D26578 52%, #682A84 79%, #241668 100%);
     background:      -o-radial-gradient(circle farthest-corner at right bottom, #FFD08A 0%, #FFA376 28%, #D26578 52%, #682A84 79%, #241668 100%);
     background:     -ms-radial-gradient(circle farthest-corner at right bottom, #FFD08A 0%, #FFA376 28%, #D26578 52%, #682A84 79%, #241668 100%);
     background:         radial-gradient(circle farthest-corner at right bottom, #FFD08A 0%, #FFA376 28%, #D26578 52%, #682A84 79%, #241668 100%);
+}
+
+section.hero {
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 730px;
 }
 section.hero .container {
     top: 50%;
@@ -83,16 +85,16 @@ section.hero .tagline {
     opacity: .7;
 }
 .example .popupS-layer {
-    border: 2px solid #AAA;
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    -webkit-transition: all .3s;
+         -o-transition: all .3s;
+            transition: all .3s;
+
+    -webkit-box-shadow: 5px 5px 15px rgba(0, 0, 0, .1);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, .1);
 }
 .example:hover .popupS-layer {
-    -webkit-box-shadow: -1px 3px 8px 1px rgba(0,0,0,.2);
-            box-shadow: -1px 3px 8px 1px rgba(0,0,0,.2);
-}
-.hero .example .popupS-layer {
-    border: none;
+    -webkit-box-shadow: 5px 5px 15px rgba(0, 0, 0, .2);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, .2);
 }
 .popupS-button {
     border-radius: 8px;
@@ -108,11 +110,7 @@ section.hero .tagline {
 .dropper-button-holder .dropper-button:first-of-type {
     margin-left: 0;
 }
-section.examples pre {
-    overflow-x: hidden;
-    overflow-y: scroll;
-
-    max-height: 220px;
+section pre {
     padding: 1em 2em;
 
     text-align: left;
@@ -120,6 +118,33 @@ section.examples pre {
     border: 1px solid #C8C8C8;
     background-color: #F3F3F3;
 }
-section.examples.odd pre {
+section.odd pre {
     background-color: #FFF;
+}
+
+section.examples pre {
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    max-height: 220px;
+}
+
+section.footer .social-icon {
+    font-size: 3.5em;
+
+    display: inline-block;
+
+    padding: 1em;
+
+    -webkit-transition: opacity .1s;
+         -o-transition: opacity .1s;
+            transition: opacity .1s;
+    text-decoration: none;
+
+    opacity: .6;
+    color: #FFF;
+}
+section.footer .social-icon:hover,
+section.footer .social-icon:active {
+    opacity: .8;
 }
