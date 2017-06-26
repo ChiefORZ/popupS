@@ -360,7 +360,7 @@ label input[type=radio]:checked + span.dropper-radio.radio-purple::after {
 	border-color: #3BAFDA!important;
 	background-color: #3BAFDA!important;
 }
-.button-green:hover.,
+.button-green:hover,
 .button-green:focus{
 	border-color: #36B38E!important;
 	background-color: #36B38E!important;
