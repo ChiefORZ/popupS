@@ -410,21 +410,23 @@
                     _on(img, 'load', complete);
                     _on(img, 'error', complete);
                 }
-            }
+			}
             //in case the're already cached by the browser
-            !queue && complete();
-
-            var complete = function(){
-                if(--queue <= 0){
-                    i = items.length;
-                    while(i--){
-                        img = items[i];
-                        _off(img, 'load', complete);
-                        _off(img, 'error', complete);
+            if(!queue) callback();
+            else {
+                var complete = function(){
+                    if(--queue >= 0){
+                        i = items.length;
+                        while(i--){
+                            img = items[i];
+                            _off(img, 'load', complete);
+                            _off(img, 'error', complete);
+                        }
+                        callback();
                     }
-                    callback();
-                }
-            };
+                };
+                complete();
+            }
         },
         /**
          * ajax request
