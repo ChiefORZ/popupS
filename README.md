@@ -1,3 +1,6 @@
+*This project has reached the end of its development. Feel free to browse the code, but please use other libraries in development like [sweetalert](https://github.com/t4t5/sweetalert).*
+
+
 # popupS
 
 Native Javascript Module to display beautiful popups. With react support!
